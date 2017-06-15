@@ -1,6 +1,16 @@
 function show_index(neb_report) {
-    var words_per_sentence = (neb_report.total_words) / neb_report.total_sentences;
+    var words_per_sentence;
+    if (neb_report.total_sentences == 0) {
+        words_per_sentence = 0;
+    } else {
+        words_per_sentence = (neb_report.total_words) / neb_report.total_sentences;
+    }
     var longwordidx = neb_report.long_words.length * 100.0 / neb_report.total_words;
+    if (neb_report.total_words == 0) {
+        longwordidx = 0;
+    } else {
+        longwordidx = neb_report.long_words.length * 100.0 / neb_report.total_words;
+    }
     var nebidx = 0.4 * (words_per_sentence + longwordidx);
 
     document.getElementById("oraciones").innerHTML = String(neb_report.total_sentences);
