@@ -32,9 +32,22 @@ function remove_nonalnum(text) {
     return text.replace(r, "");
 }
 
+function detect_proper_nouns(sentence) {
+    // simple definition for proper noun: anything capitalized that is not at
+    // the beggining of a sentence
+    var r = / ([A-ZÁÉÍÓÚÜÑ][a-záéíóúü]+)/g;
+    return sentence.match(r).map(function(noun) {return noun.trim()});
+}
+
 function _measure_nebulosity(text) {
     var report = {};
     var sentences = get_sentences(text).map(remove_nonalnum);
+    var proper_nouns = [].concat.apply(
+        [], sentences.map(detect_proper_nouns)
+    ).reduce(function(obj, noun) {
+        obj[noun] = 1;
+        return obj;
+    }, {});
 
     var all_words = sentences.reduce(function (curr_list, sentence) {
         var as_arr = sentence.trim().split(/\s+/g);
@@ -42,7 +55,7 @@ function _measure_nebulosity(text) {
     }, []);
 
     var long_words = all_words.filter(function(word) {
-        return vowel_groups(word) >= 4;
+        return vowel_groups(word) >= 4 && proper_nouns[word] !== 1;
     });
 
     report.total_sentences = sentences.length;
