@@ -1,22 +1,59 @@
 <html>
     <head>
       <meta charset="UTF-8">
+
+      <!-- Latest compiled and minified CSS -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+      <!-- Optional theme -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
       <link href="./style.css" rel="stylesheet" type="text/css">
     </head>
     <body>
-        <h2>Calculadora para el índice de nebulosidad</h2>
-        <textarea id="lacarreta" cols="72" rows="20"></textarea><br/>
-        <button onclick="measure_nebulosity()">
-            Analizar
-        </button>
-        <table>
-            <tbody>
-                <tr><td><strong>Oraciones:<strong></td><td id="oraciones"></td><td><strong>Palabras por oración:</strong></td><td id="pal_por_orac"></td></tr>
-                <tr><td><strong>Total palabras:<strong></td><td id="palabras"></td><td><strong>Índice de nebulosidad:</strong></td><td id="indice"></td></tr>
-                <tr><td><strong>Palabras largas:<strong></td><td id="largas"></td></tr>
-            </tbody>
-        </table>
-        <p id="subrayado"></p>
+        <div class="container">
+            <h2>Calculadora para el índice de nebulosidad</h2>
+
+            <div class="row">
+                <div class="col-sm-6">
+                    <textarea id="lacarreta" rows="20" placeholder="Escribe su texto aquí"></textarea>
+                </div>
+                <div class="col-sm-6">
+                    <div id="subrayado"></div>
+                </div>
+            </div><!-- /.row -->
+
+            <br/>
+            <div class="text-center">
+                <button class="btn btn-primary" onclick="measure_nebulosity()">
+                    Analizar
+                </button>
+            </div>
+            <br/>
+            <br/>
+            <ul class="list-group">
+              <li class="list-group-item">
+                <span class="badge" id="oraciones"></span>
+                Oraciones:
+              </li>
+              <li class="list-group-item">
+                <span class="badge" id="pal_por_orac"></span>
+                Palabras por oración:
+              </li>
+              <li class="list-group-item">
+                <span class="badge" id="palabras"></span>
+                Total palabras:
+              </li>
+              <li class="list-group-item">
+                <span class="badge" id="largas"></span>
+                Palabras largas:
+              </li>
+              <li class="list-group-item">
+                <span class="badge badge-info" id="indice"></span>
+                Índice de nebulosidad:
+              </li>
+            </ul>
+        </div><!-- /.container -->
         <script src="./carreta.js"></script>
     </body>
 </html>
