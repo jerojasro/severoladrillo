@@ -1,0 +1,22 @@
+<html>
+    <head>
+      <meta charset="UTF-8">
+      <link href="./style.css" rel="stylesheet" type="text/css">
+    </head>
+    <body>
+        <h2>¿Es esto un ladrillo?</h2>
+        <textarea id="lacarreta"></textarea><br/>
+        <button onclick="measure_nebulosity()">
+            Click me!
+        </button>
+        <table>
+            <tbody>
+                <tr><td><strong>Oraciones:<strong></td><td id="oraciones"></td><td><strong>Palabras por oración:</strong></td><td id="pal_por_orac"></td></tr>
+                <tr><td><strong>Total palabras:<strong></td><td id="palabras"></td><td><strong>Índice de nebulosidad:</strong></td><td id="indice"></td></tr>
+                <tr><td><strong>Palabras largas:<strong></td><td id="largas"></td></tr>
+            </tbody>
+        </table>
+        <p id="subrayado"></p>
+        <script src="./carreta.js"></script>
+    </body>
+</html>
