@@ -46,7 +46,11 @@ function detect_proper_nouns(sentence) {
     // simple definition for proper noun: anything capitalized that is not at
     // the beggining of a sentence
     var r = / ([A-ZÁÉÍÓÚÜÑ][a-záéíóúü]+)/g;
-    return sentence.match(r).map(function(noun) {return noun.trim()});
+    var nouns = sentence.match(r);
+    if (!nouns) {
+        return [];
+    }
+    return nouns.map(function(noun) {return noun.trim()});
 }
 
 function _measure_nebulosity(text) {
