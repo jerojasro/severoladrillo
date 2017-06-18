@@ -24,7 +24,8 @@ function show_annotated_text(text, long_words) {
     long_words.forEach(function(lword) {
         text = text.replace(RegExp("(" + lword + ")", "gi"), "<span class=\"longword\">$1</span>");
     });
-    document.getElementById("subrayado").innerHTML = text;
+    var pars = text.split(/\s*\n\s*\n\s*/).map(function (par) {return "<p>" + par + "</p>"});
+    document.getElementById("subrayado").innerHTML = pars.reduce(function(allpars, par) {return allpars + par;}, "");
 }
 
 function measure_nebulosity() {
@@ -39,7 +40,7 @@ function measure_nebulosity() {
 
 function remove_nonalnum(text) {
     text = text.replace("/", " ");
-    var r = /[^a-zA-Z0-9ñÑáÁéÉíÍóÓúÚüÜ -]/g;
+    var r = /[^a-zA-Z0-9ñÑáÁéÉíÍóÓúÚüÜ\n -]/g;
     return text.replace(r, "");
 }
 
