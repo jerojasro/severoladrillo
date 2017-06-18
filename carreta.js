@@ -93,7 +93,7 @@ function vowel_groups(word) {
 }
 
 function get_sentences(text) {
-    var r = /\?|\.|!/ ;
+    var r = /\?|\. |!/ ;
     var sns = text.split(r);
     if (sns[sns.length - 1].trim().length == 0) { // text ends on a sentence separator
         sns.pop();
