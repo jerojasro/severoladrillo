@@ -38,6 +38,7 @@ function measure_nebulosity() {
 }
 
 function remove_nonalnum(text) {
+    text = text.replace("/", " ");
     var r = /[^a-zA-Z0-9ñÑáÁéÉíÍóÓúÚüÜ -]/g;
     return text.replace(r, "");
 }
