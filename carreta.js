@@ -22,7 +22,7 @@ function show_index(neb_report) {
 
 function show_annotated_text(text, long_words) {
     long_words.forEach(function(lword) {
-        text = text.replace(RegExp("(" + lword + ")", "gi"), "<span class=\"longword\">$1</span>");
+        text = text.replace(RegExp("(\\b" + lword + "\\b)", "gi"), "<span class=\"longword\">$1</span>");
     });
     var pars = text.split(/\s*\n\s*\n\s*/).map(function (par) {return "<p>" + par + "</p>"});
     document.getElementById("subrayado").innerHTML = pars.reduce(function(allpars, par) {return allpars + par;}, "");
