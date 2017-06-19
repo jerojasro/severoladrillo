@@ -17,7 +17,7 @@ function show_index(neb_report) {
     document.getElementById("palabras").innerHTML = String(neb_report.total_words);
     document.getElementById("largas").innerHTML = String(neb_report.long_words.length);
     document.getElementById("pal_por_orac").innerHTML = String(words_per_sentence);
-    document.getElementById("indice").innerHTML = "<strong>" + String(nebidx) + "</strong>";
+    document.getElementById("indice").innerHTML = "<strong>" + String(nebidx.toFixed(2)) + "</strong>";
 }
 
 function show_annotated_text(text, long_words) {
