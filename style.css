@@ -15,7 +15,9 @@ textarea, #subrayado {
 }
 
 .longword {
-    color: #b94a48;
+    color: #fff;
+    background: #b94a48;
+    padding: 0 2px;
 }
 
 .badge-info {
