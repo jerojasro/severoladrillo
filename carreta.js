@@ -95,7 +95,7 @@ function vowel_groups(word) {
 }
 
 function get_sentences(text) {
-    var r = /\?|\. |!/ ;
+    var r = /\?|\. |\s*\n\s*\n\s*|!/ ;
     var sns = text.split(r);
     if (sns[sns.length - 1].trim().length == 0) { // text ends on a sentence separator
         sns.pop();
